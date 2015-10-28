@@ -69,7 +69,7 @@ void draw(){
         
       if(enemyX-i*enemySpace>=width) {
         enemyX = 0;
-        enemyY = random(20,150);
+        enemyY = random(20,140);//下一個敵機編隊的Y座標將占去66*5=330，所以Y出現的座標不能多於480-330=150，以免編隊跑出去
         gameState = 2;//進入第二階段
       }
       break;
@@ -82,7 +82,7 @@ void draw(){
           enemyX+=4;//All appear then forward
        if(enemyX-i*enemySpace>=width) {
         enemyX = 0;
-        enemyY = random(20,100);
+        enemyY = random(20,140);//下一個敵機編隊的Y座標將占去66*5=330，所以Y出現的座標不能多於480-330=150，以免編隊跑出去
         gameState = 3;//變成第三階段
       }
       break;
