@@ -7,7 +7,7 @@ void setup(){
  bg1 = loadImage("img/bg1.png");
  bg2 = loadImage("img/bg2.png");
  enemy = loadImage("img/enemy.png");
- fighter = loadImage("/img/fighter.png");
+ fighter = loadImage("img/fighter.png");
  hp = loadImage("img/hp.png");
  treasure = loadImage("img/treasure.png");
   size(640, 480) ;
