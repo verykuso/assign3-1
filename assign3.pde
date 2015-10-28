@@ -26,7 +26,7 @@ void setup(){
  speedX = 1;
  speedY = 1;
  gameState = 1;
- enemySpace=66;
+ enemySpace=66;//敵機所占的空間大小
 }
 
 
@@ -60,7 +60,7 @@ void draw(){
   
  //game state changing 
   switch(gameState){
-    //enemies go in line
+    //enemies go in line 敵機成一列行進
     case 1:
       for(i=0;i<5;i++){
         image(enemy,enemyX-i*enemySpace,enemyY);
@@ -70,11 +70,11 @@ void draw(){
       if(enemyX-i*enemySpace>=width) {
         enemyX = 0;
         enemyY = random(20,150);
-        gameState = 2;
+        gameState = 2;//進入第二階段
       }
       break;
       
-     //enemies go a angled line
+     //enemies go a angled line敵機排成斜角行進
     case 2:
        for(i=0;i<5;i++){
          image(enemy,enemyX-i*enemySpace,enemyY+i*enemySpace);
@@ -83,15 +83,15 @@ void draw(){
        if(enemyX-i*enemySpace>=width) {
         enemyX = 0;
         enemyY = random(20,100);
-        gameState = 3;
+        gameState = 3;//變成第三階段
       }
       break;
-       //enemies go in a diamond shape
+       //enemies go in a diamond shape 敵機呈菱形編隊行進
      case 3:
-       
+       //窮舉法
        for(i=1;i<=5;i++){
         for(j=1;j<=5;j++){
-         if(i==1&&j==3) image(enemy,enemyX-2*enemySpace,enemyY);
+         if(i==1&&j==3) image(enemy,enemyX-2*enemySpace,enemyY);//當座標位於第一列第三行時出現機圖案，餘類推
          if(i==2&&j==2) image(enemy,enemyX-3*enemySpace,enemyY+enemySpace);
          if(i==2&&j==4) image(enemy,enemyX-1*enemySpace,enemyY+enemySpace);
          if(i==3&&j==1) image(enemy,enemyX-4*enemySpace,enemyY+2*enemySpace);
@@ -103,7 +103,7 @@ void draw(){
         
            } 
            
-        enemyX+=4; //All appear then forward
+        enemyX+=4; //All appear then forward菱形隊形全部出現後加速前進
         if(enemyX-i*enemySpace>=width) {
         enemyX = 0;
         enemyY = random(100,300);
@@ -113,7 +113,7 @@ void draw(){
       }
     
 }
-
+//按鍵控制我機
 void keyPressed(){
   if(key==CODED){
     switch(keyCode){
